@@ -3,7 +3,6 @@
 
 :root {
   --unnamed-color-ffffff: #ffffff;
-  --unnamed-color-ff5d54: #ff5d54;
   --unnamed-color-efefef: #efefef;
   --unnamed-color-ff5266: #ff5266;
   --unnamed-color-ff905b: #ff905b;
@@ -22,6 +21,7 @@
   /* usados */
   --unnamed-color-ff885c: #FF885C;
   --unnamed-color-ff5353: #FF5353;
+  --unnamed-color-ff5d54: #ff5d54;
 
   --sidenav-width: 220px;
   --cart-width: 220px;
@@ -33,5 +33,5 @@ body {
 }
 
 .content-wrapper {
-    margin: 12px;
+    margin: 20px;
 }

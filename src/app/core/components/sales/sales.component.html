@@ -1,1 +1,28 @@
-<p>sales works!</p>
+<div>
+  <div class="content-wrapper">
+    <section class="products">
+      <div class="products-grid">
+        <div *ngFor="let p of products" class="products-product">
+          <article class="products-product-info">
+            <img src="{{ p.image }}" alt="" />
+            <p>{{ p.name }}</p>
+            <p>{{ p.price }}</p>
+          </article>
+          <div class="products-product-controls">
+            <div class="products-product-controls-grid">
+              <div class="products-product-controls-decrease">
+                1
+              </div>
+              <div class="products-product-controls-detail">
+                2
+              </div>
+              <div class="products-product-controls-increase">
+                3
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
