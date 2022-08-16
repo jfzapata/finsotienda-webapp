@@ -1,0 +1,28 @@
+nav {
+    background-image: linear-gradient(to right, var(--unnamed-color-ff885c), var(--unnamed-color-ff5353));
+    color: white;
+    padding: 40px 0px;
+}
+
+.navbar-info {
+    width: calc(100% - 368px);
+    margin: auto;
+    margin: auto;
+    padding-bottom: 30px;
+    border-bottom: 2px dashed var(--unnamed-color-ffffff);
+}
+
+.navbar-info-page-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 34px;
+    margin: 0px;
+}
+
+i {
+    font-size: 42px;
+    color: white;
+    float: left;
+    cursor: pointer;
+}
+
