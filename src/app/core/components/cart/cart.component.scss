@@ -1,0 +1,11 @@
+.cart {
+    margin: 0;
+    padding: 0;
+    width: var(--cart-width);
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    right: 0;
+    top: 0;
+    overflow: auto;
+  }

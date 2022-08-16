@@ -3,22 +3,25 @@ import { CommonModule } from '@angular/common';
 
 // Own
 // Components
-import { NavbarComponent } from './layouts/navbar/navbar.component';
-import { SidenavComponent } from './layouts/sidenav/sidenav.component';
-import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from '@app/core/layouts/navbar/navbar.component';
+import { SidenavComponent } from '@app/core/layouts/sidenav/sidenav.component';
+import { HomeComponent } from '@app/core/components/home/home.component';
+import { CartComponent } from '@app/core/components/cart/cart.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SidenavComponent,
-    HomeComponent
+    HomeComponent,
+    CartComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
     NavbarComponent,
-    SidenavComponent
+    SidenavComponent,
+    CartComponent
   ]
 })
 export class CoreModule { }
