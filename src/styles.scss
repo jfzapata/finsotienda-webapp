@@ -23,11 +23,15 @@
   --unnamed-color-ff885c: #FF885C;
   --unnamed-color-ff5353: #FF5353;
 
-  --sidenav-width: 184px;
-  --cart-width: 184px;
+  --sidenav-width: 220px;
+  --cart-width: 220px;
 }
 
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+}
+
+.content-wrapper {
+    margin: 12px;
 }

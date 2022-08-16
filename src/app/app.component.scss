@@ -1,0 +1,4 @@
+.route-content-wrapper {
+    width: calc(100% - (var(--sidenav-width) + var(--cart-width)));
+    margin: auto;
+}
