@@ -33,6 +33,8 @@
 .products-product-controls-decrease, .products-product-controls-increase {
 	background-color: var(--unnamed-color-ff5d54);
 	height: 100%;
+	color: white;
+	cursor: pointer;
 } 
 
 .products-product-controls-decrease {
@@ -54,3 +56,46 @@
 	align-items: center;
 	justify-content: center;
 } 
+
+.products-product-info-name {
+	font-size: 16px;
+	color: var(--unnamed-color-404040);
+}
+
+.products-product-info-price {
+	font-size: 16px;
+	font-weight: bold;
+	color: var(--unnamed-color-404040);
+}
+
+.search-bar-input-control {
+	position: relative;
+	display: flex;
+  align-items: center;
+
+	input {
+		width: 100%;
+		border: 1px solid var(--unnamed-color-ff5d54);
+		color: var(--unnamed-color-404040);
+		border-radius: 8px;
+		height: 56px;
+		font-size: 21px;
+		padding-left: 20px;
+	}
+
+	input:focus{
+    outline: none;
+	}
+
+	input::placeholder {
+		color: var(--unnamed-color-ff5d54);
+	}
+
+	i {
+		color: var(--unnamed-color-ff5d54);
+		position: absolute;
+		right: 10px;
+		margin: auto;
+		font-size: 34px;
+	}
+}
