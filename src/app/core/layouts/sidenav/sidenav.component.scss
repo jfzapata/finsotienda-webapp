@@ -53,6 +53,7 @@
   list-style: none;
   padding-left: 0;
   padding-right: 11px;
+  margin-bottom: 22px;
 
   li {
     cursor: pointer;
@@ -71,5 +72,13 @@
   .active {
     background-color: var(--unnamed-color-ff5d54);
     color: white;
+  }
+}
+
+.sidenav-navigation-buttons {
+  button {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 12px;
   }
 }
