@@ -34,6 +34,15 @@ export class CartComponent implements OnInit {
 
   private getCartItems(): void {
     this.cartItems = this.cartService.getCartItems();
+    this.calculateTotal();
+  }
+
+  private calculateTotal(): void {
+    let newTotal = this.cartItems.reduce(
+      (partialSum, ci) => partialSum + (ci.addedQuantity ? ci.price * ci.addedQuantity : 0),
+      0
+    );
+    this.total = newTotal;
   }
 
 }
