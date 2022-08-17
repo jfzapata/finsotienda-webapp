@@ -46,4 +46,31 @@ body {
   cursor: pointer;
   color: white;
   background: var(--unnamed-color-ff5d54);
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.input1 {
+  border: 1px solid var(--unnamed-color-ff5d54);
+  color: var(--unnamed-color-404040);
+  border-radius: 8px;
+  height: 56px;
+  font-size: 21px;
+  padding: 0px 20px;
+}
+
+.input1:focus {
+  outline: none;
+}
+
+.input1::placeholder {
+  color: var(--unnamed-color-ff5d54);
+}
+
+.hidden-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hidden-scroll::-webkit-scrollbar {
+  display: none;
 }

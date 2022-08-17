@@ -1,4 +1,4 @@
-<div class="cart-container">
+<div class="cart-container hidden-scroll">
   <div class="cart">
     <div class="cart-header">
       <div class="cart-header-figure">
@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="cart-details">
+    <div class="cart-details hidden-scroll">
       <div class="cart-details-items">
         <div *ngFor="let ci of cartItems" class="cart-details-item">
 					<div class="cart-details-item-detail">
@@ -25,6 +25,9 @@
 				</div>
       </div>
     </div>
-    <div class="cart-sale">asdfasdf</div>
+    <div class="cart-sale">
+      <input class="input1" type="text" placeholder="celular">
+      <button class="btn1">VENDER</button>
+    </div>
   </div>
 </div>
