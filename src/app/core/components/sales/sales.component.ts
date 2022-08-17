@@ -26,6 +26,7 @@ export class SalesComponent implements OnInit {
 
   private loadAllProducts(): void {
     this.products = this.productsService.findAll();
+    this.products = this.products.concat(this.products).concat(this.products);
   }
 
   private onSearchBarchValueChange(value: string): void {
