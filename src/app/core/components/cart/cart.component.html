@@ -26,8 +26,8 @@
       </div>
     </div>
     <div class="cart-sale">
-      <input class="input1" type="text" placeholder="celular">
-      <button class="btn1">VENDER</button>
+      <input [formControl]="phoneNumberControl" class="input1" type="text" placeholder="celular">
+      <button [disabled]="phoneNumberControl.invalid" class="btn1">VENDER</button>
     </div>
   </div>
 </div>

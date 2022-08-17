@@ -9,6 +9,7 @@ import { EventEmitterEvent } from '@app/common/enums/event-emitter-event';
 // Services
 import { CartService } from '@app/common/services/cart.service';
 import { EventEmitterService } from '@app/common/services/event-emitter.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -18,8 +19,17 @@ import { EventEmitterService } from '@app/common/services/event-emitter.service'
 export class CartComponent implements OnInit {
   total = 0;
   cartItems: CartItemI[] = [];
+  phoneNumberControl: FormControl = new FormControl('',
+    Validators.compose([
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10),
+      Validators.pattern(/^[0-9]*$/)
+    ])
+  );
   constructor(private cartService: CartService,
-    private eventEmitterService: EventEmitterService) { }
+    private eventEmitterService: EventEmitterService) {
+    }
 
   ngOnInit(): void {
     this.eventEmitterService.on(EventEmitterEvent.CART_UPDATED.valueOf(), () => this.getCartItems());
