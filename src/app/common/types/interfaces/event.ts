@@ -1,4 +1,4 @@
 export interface EventI {
     eventName: string;
-    data: { [key: string]: any };
+    data?: { [key: string]: any };
 }

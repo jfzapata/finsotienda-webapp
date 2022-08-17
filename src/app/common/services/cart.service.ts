@@ -4,13 +4,17 @@ import { Injectable } from '@angular/core';
 // Types
 // Interfaces
 import { ProductI } from '@app/common/types/interfaces/product';
+// Enums
+import { EventEmitterEvent } from '@app/common/enums/event-emitter-event';
+// Services
+import { EventEmitterService } from '@app/common/services/event-emitter.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   lsKey = 'cartItems';
-  constructor() { }
+  constructor(private eventEmitterService: EventEmitterService) { }
 
   updateCartItem(product: ProductI, quantity: number): void {
     try {
@@ -33,6 +37,9 @@ export class CartService {
           }
 
           localStorage.setItem(this.lsKey, JSON.stringify(cartItems));
+          this.eventEmitterService.emit({
+            eventName: EventEmitterEvent.CART_UPDATED.valueOf()
+          })
         } else {
           console.log('No se puede actualizar el producto con cantidad negativa!');
         }

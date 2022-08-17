@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { CartService } from '@app/common/services/cart.service';
-import { ProductsService } from '@app/common/services/products.service';
 
 // Own
 // Types
 // Interfaces
 import { ProductI } from '@app/common/types/interfaces/product';
+// Enums
+import { EventEmitterEvent } from '@app/common/enums/event-emitter-event';
+// Services
+import { CartService } from '@app/common/services/cart.service';
+import { EventEmitterService } from '@app/common/services/event-emitter.service';
+import { ProductsService } from '@app/common/services/products.service';
 
 @Component({
   selector: 'app-sales',
@@ -17,11 +21,12 @@ export class SalesComponent implements OnInit {
   products: ProductI[] = [];
   searchBarControl: FormControl = new FormControl();
   constructor(private productsService: ProductsService,
-    private cartService: CartService) { }
+    private cartService: CartService,
+    private eventEmitterService: EventEmitterService) { }
 
   ngOnInit(): void {
     this.searchBarControl.valueChanges.subscribe((val) => this.onSearchBarchValueChange(val));
-
+    this.eventEmitterService.on(EventEmitterEvent.CART_UPDATED.valueOf(), () => this.setProductsExtraInfo());
     this.loadAllProducts();
     console.log(this.products);
   }
