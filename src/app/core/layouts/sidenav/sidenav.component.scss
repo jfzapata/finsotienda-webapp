@@ -48,3 +48,28 @@
     cursor: pointer;
   }
 }
+
+.sidenav-navigation-links {
+  list-style: none;
+  padding-left: 0;
+  padding-right: 11px;
+
+  li {
+    cursor: pointer;
+    padding: 12px 0px 12px 35px;
+    font-size: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    color: var(--unnamed-color-ff5d54);
+    margin-right: 25px;
+
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  .active {
+    background-color: var(--unnamed-color-ff5d54);
+    color: white;
+  }
+}
