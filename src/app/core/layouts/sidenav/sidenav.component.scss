@@ -2,8 +2,49 @@
   margin: 0;
   padding: 0;
   width: var(--sidenav-width);
-  background-color: #f1f1f1;
   position: fixed;
   height: 100%;
   overflow: auto;
+}
+
+.sidenav-top {
+  width: 80%;
+  height: 100px;
+  background-color: var(--unnamed-color-ff5d54);
+  margin-top: 20px;
+  border-top-right-radius: 24px;
+  box-shadow: 6px 3px 6px #00000029;
+}
+
+.sidenav-navigation {
+  width: 100%;
+  background-color: white;
+  border-top-right-radius: 24px;
+  box-shadow: 6px -3px 6px #00000029;
+}
+
+.sidenav-navigation-logo {
+  padding: 19px 16px 0px 16px;
+  text-align: center;
+  position: relative;
+}
+
+.sidenav-navigation-img {
+  img {
+    width: 100%;
+  }
+
+  position: relative;
+
+  i {
+    font-size: 15px;
+    padding: 15px;
+    background-color: var(--unnamed-color-ff5d54);
+    color: white;
+    border-radius: 100%;
+    position: absolute;
+    top: -12px;
+    right: -8px;
+    cursor: pointer;
+  }
 }
