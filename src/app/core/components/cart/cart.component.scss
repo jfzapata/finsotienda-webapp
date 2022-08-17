@@ -38,6 +38,7 @@
 }
 
 .cart-header-figure-description {
+  margin-top: 0;
   font-size: 16px;
   font-weight: bold;
 }
@@ -74,9 +75,10 @@
 }
 
 .cart-header-total-content-value {
-  font-size: 30px;
+  font-size: 25px;
   color: var(--unnamed-color-404040);
-  font-weight: bold;
+  font-family: 'Fredoka';
+  font-weight: 600;
   margin: 0;
 }
 
