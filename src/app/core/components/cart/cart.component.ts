@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // Own
 // Types
 // Interfaces
-import { ProductI } from '@app/common/types/interfaces/product';
+import { CartItemI } from '@app/common/types/interfaces/cart-item';
 // Enums
 import { EventEmitterEvent } from '@app/common/enums/event-emitter-event';
 // Services
@@ -17,7 +17,7 @@ import { EventEmitterService } from '@app/common/services/event-emitter.service'
 })
 export class CartComponent implements OnInit {
   total = 0;
-  cartItems: ProductI[] = [];
+  cartItems: CartItemI[] = [];
   constructor(private cartService: CartService,
     private eventEmitterService: EventEmitterService) { }
 
@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
     this.getCartItems();
   }
 
-  removeItemFromCart(cartItem: ProductI): void {
+  removeItemFromCart(cartItem: CartItemI): void {
     if (cartItem.addedQuantity) {
       this.cartService.updateCartItem(cartItem, cartItem.addedQuantity * -1);
     }
@@ -39,7 +39,7 @@ export class CartComponent implements OnInit {
 
   private calculateTotal(): void {
     let newTotal = this.cartItems.reduce(
-      (partialSum, ci) => partialSum + (ci.addedQuantity ? ci.price * ci.addedQuantity : 0),
+      (partialSum, ci) => partialSum + ci.price * ci.addedQuantity,
       0
     );
     this.total = newTotal;

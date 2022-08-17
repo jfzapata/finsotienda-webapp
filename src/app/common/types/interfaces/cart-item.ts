@@ -3,6 +3,6 @@
 // Interfaces
 import { ProductBaseInfoI } from "./product-base-info";
 
-export interface ProductI extends ProductBaseInfoI {
-  addedQuantity?: number;
+export interface CartItemI extends ProductBaseInfoI {
+    addedQuantity: number;
 }

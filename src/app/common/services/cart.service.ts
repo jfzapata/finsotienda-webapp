@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 // Types
 // Interfaces
 import { ProductI } from '@app/common/types/interfaces/product';
+import { CartItemI } from '@app/common/types/interfaces/cart-item';
 // Enums
 import { EventEmitterEvent } from '@app/common/enums/event-emitter-event';
 // Services
@@ -18,38 +19,37 @@ export class CartService {
 
   updateCartItem(product: ProductI, quantity: number): void {
     try {
-      const cartItems: ProductI[] = this.getCartItems();
-      const cartItemFound: ProductI | undefined = cartItems.find(ci => ci.id === product.id);
-      let cartItem: ProductI;
+      const cartItems: CartItemI[] = this.getCartItems();
+      const cartItemFound: CartItemI | undefined = cartItems.find(ci => ci.id === product.id);
+      let cartItem: CartItemI;
       if (!cartItemFound) {
         cartItem = Object.assign(product, { addedQuantity: 0 });
         cartItems.push(cartItem);
       } else {
         cartItem = cartItemFound;
       }
-      if (cartItem && cartItem.addedQuantity != undefined) {
-        if (cartItem.addedQuantity + quantity >= 0) {
-          cartItem.addedQuantity = cartItem.addedQuantity + quantity;
+      
+      if (cartItem.addedQuantity + quantity >= 0) {
+        cartItem.addedQuantity = cartItem.addedQuantity + quantity;
 
-          if (!cartItem.addedQuantity) {
-            let cartItemIndexOf = cartItems.indexOf(cartItem);
-            cartItems.splice(cartItemIndexOf, 1);
-          }
-
-          localStorage.setItem(this.lsKey, JSON.stringify(cartItems));
-          this.eventEmitterService.emit({
-            eventName: EventEmitterEvent.CART_UPDATED.valueOf()
-          })
-        } else {
-          console.log('No se puede actualizar el producto con cantidad negativa!');
+        if (!cartItem.addedQuantity) {
+          let cartItemIndexOf = cartItems.indexOf(cartItem);
+          cartItems.splice(cartItemIndexOf, 1);
         }
-      } else {}
+
+        localStorage.setItem(this.lsKey, JSON.stringify(cartItems));
+        this.eventEmitterService.emit({
+          eventName: EventEmitterEvent.CART_UPDATED.valueOf()
+        })
+      } else {
+        console.log('No se puede actualizar el producto con cantidad negativa!');
+      }
     } catch (error) {
       
     }
   }
 
-  getCartItems(): ProductI[] {
+  getCartItems(): CartItemI[] {
     try {
       const lsCartItems = localStorage.getItem(this.lsKey);
       if (lsCartItems) {
