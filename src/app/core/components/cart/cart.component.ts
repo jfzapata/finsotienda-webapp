@@ -26,6 +26,12 @@ export class CartComponent implements OnInit {
     this.getCartItems();
   }
 
+  removeItemFromCart(cartItem: ProductI): void {
+    if (cartItem.addedQuantity) {
+      this.cartService.updateCartItem(cartItem, cartItem.addedQuantity * -1);
+    }
+  }
+
   private getCartItems(): void {
     this.cartItems = this.cartService.getCartItems();
   }

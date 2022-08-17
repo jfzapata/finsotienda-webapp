@@ -14,13 +14,13 @@
     </div>
     <div class="cart-details">
       <div class="cart-details-items">
-        <div *ngFor="let ct of cartItems" class="cart-details-item">
+        <div *ngFor="let ci of cartItems" class="cart-details-item">
 					<div class="cart-details-item-detail">
-						<p class="cart-details-item-detail-name">{{ ct.name }}</p>
-						<p class="cart-details-item-detail-price">${{ ct.price }} x{{ ct.addedQuantity }}</p>
+						<p class="cart-details-item-detail-name">{{ ci.name }}</p>
+						<p class="cart-details-item-detail-price">${{ ci.price }} x{{ ci.addedQuantity }}</p>
 					</div>
 					<div class="cart-details-item-trash-icon">
-						<i class="fa-solid fa-trash-can"></i>
+						<i  (click)="removeItemFromCart(ci)" class="fa-solid fa-trash-can"></i>
 					</div>
 				</div>
       </div>
