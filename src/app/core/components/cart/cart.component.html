@@ -14,10 +14,10 @@
     </div>
     <div class="cart-details">
       <div class="cart-details-items">
-        <div class="cart-details-item">
+        <div *ngFor="let ct of cartItems" class="cart-details-item">
 					<div class="cart-details-item-detail">
-						<p class="cart-details-item-detail-name">Chocolatina Jet</p>
-						<p class="cart-details-item-detail-price">$25000 x2</p>
+						<p class="cart-details-item-detail-name">{{ ct.name }}</p>
+						<p class="cart-details-item-detail-price">${{ ct.price }} x{{ ct.addedQuantity }}</p>
 					</div>
 					<div class="cart-details-item-trash-icon">
 						<i class="fa-solid fa-trash-can"></i>
