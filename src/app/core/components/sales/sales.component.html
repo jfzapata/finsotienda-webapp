@@ -18,13 +18,13 @@
           </article>
           <div class="products-product-controls">
             <div class="products-product-controls-grid">
-              <div class="products-product-controls-decrease">
+              <div (click)="decreaseProductQuantity(p)" class="products-product-controls-decrease">
                 <i class="fa-solid fa-minus"></i>
               </div>
               <div class="products-product-controls-detail">
                 {{ p.addedQuantity }}
               </div>
-              <div class="products-product-controls-increase">
+              <div (click)="increseProductQuantity(p)" class="products-product-controls-increase">
                 <i class="fa-solid fa-plus"></i>
               </div>
             </div>

@@ -12,6 +12,36 @@ export class CartService {
   lsKey = 'cartItems';
   constructor() { }
 
+  updateCartItem(product: ProductI, quantity: number): void {
+    try {
+      const cartItems: ProductI[] = this.getCartItems();
+      const cartItemFound: ProductI | undefined = cartItems.find(ci => ci.id === product.id);
+      let cartItem: ProductI;
+      if (!cartItemFound) {
+        cartItem = Object.assign(product, { addedQuantity: 0 });
+        cartItems.push(cartItem);
+      } else {
+        cartItem = cartItemFound;
+      }
+      if (cartItem && cartItem.addedQuantity != undefined) {
+        if (cartItem.addedQuantity + quantity >= 0) {
+          cartItem.addedQuantity = cartItem.addedQuantity + quantity;
+
+          if (!cartItem.addedQuantity) {
+            let cartItemIndexOf = cartItems.indexOf(cartItem);
+            cartItems.splice(cartItemIndexOf, 1);
+          }
+
+          localStorage.setItem(this.lsKey, JSON.stringify(cartItems));
+        } else {
+          console.log('No se puede actualizar el producto con cantidad negativa!');
+        }
+      } else {}
+    } catch (error) {
+      
+    }
+  }
+
   getCartItems(): ProductI[] {
     try {
       const lsCartItems = localStorage.getItem(this.lsKey);

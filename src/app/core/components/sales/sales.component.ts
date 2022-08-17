@@ -26,14 +26,26 @@ export class SalesComponent implements OnInit {
     console.log(this.products);
   }
 
+  increseProductQuantity(product: ProductI): void {
+    this.cartService.updateCartItem(product, 1);
+  }
+
+  decreaseProductQuantity(product: ProductI): void {
+    this.cartService.updateCartItem(product, -1);
+  }
+
   private loadAllProducts(): void {
     this.products = this.productsService.findAll();
-    this.products = this.products.map(prod => this.setProductExtraInfo(prod));
+    this.setProductsExtraInfo();
   }
 
   private onSearchBarchValueChange(value: string): void {
     this.products = this.productsService.findByName(value);
-    this.products = this.products.map(this.setProductExtraInfo);
+    this.setProductsExtraInfo();
+  }
+
+  private setProductsExtraInfo(): void {
+    this.products = this.products.map(prod => this.setProductExtraInfo(prod));
   }
 
   private setProductExtraInfo(product: ProductI): ProductI {
