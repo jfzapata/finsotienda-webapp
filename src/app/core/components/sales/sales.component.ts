@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ProductsService } from '@app/common/services/products.service';
 
 // Own
@@ -13,15 +14,22 @@ import { ProductI } from '@app/common/types/interfaces/product';
 })
 export class SalesComponent implements OnInit {
   products: ProductI[] = [];
+  searchBarControl: FormControl = new FormControl();
   constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
+    this.searchBarControl.valueChanges.subscribe((val) => this.onSearchBarchValueChange(val));
+
     this.loadAllProducts();
     console.log(this.products);
   }
 
   private loadAllProducts(): void {
     this.products = this.productsService.findAll();
+  }
+
+  private onSearchBarchValueChange(value: string): void {
+    this.products = this.productsService.findByName(value);
   }
 
 }

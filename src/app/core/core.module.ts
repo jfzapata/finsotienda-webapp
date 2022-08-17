@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Own
+// Modules
+import { SharedModule } from '@app/shared/shared.module';
 // Components
 import { NavbarComponent } from '@app/core/layouts/navbar/navbar.component';
 import { SidenavComponent } from '@app/core/layouts/sidenav/sidenav.component';
@@ -18,7 +20,8 @@ import { SalesComponent } from '@app/core/components/sales/sales.component';
     SalesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports: [
     NavbarComponent,
