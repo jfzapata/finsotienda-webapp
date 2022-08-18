@@ -27,7 +27,12 @@
       </div>
     </div>
     <div class="cart-sale">
-      <input [formControl]="phoneNumberControl" class="input1" type="text" placeholder="celular">
+      <div class="cart-sale-phone-group">
+        <div class="form-group">
+          <input required [formControl]="phoneNumberControl" class="input1" type="text" placeholder="celular">
+          <span class="float-label">Celular</span>
+        </div>
+      </div>
       <button (click)="openSaleModal()" [disabled]="phoneNumberControl.invalid || !(cartItems.length > 0)" class="btn1">VENDER</button>
     </div>
   </div>
@@ -71,10 +76,16 @@
               <p class="sale-modal-steps-step-description description-text">Diligencia los siguientes campos con la información de tu cliente</p>
               <div class="sale-modal-steps-step-customer-info">
                 <div class="sale-modal-steps-step-customer-info-name">
-                  <input [formControl]="costumerNameControl" placeholder="Nombre" class="input1" type="text">
+                  <div class="form-group">
+                    <input required [formControl]="costumerNameControl" placeholder="Nombre" class="input1" type="text">
+                    <span class="float-label">Nombre</span>
+                  </div>
                 </div>
                 <div class="sale-modal-steps-step-customer-info-phonenumber">
-                  <input [formControl]="phoneNumberControl" placeholder="Celular" class="input1" type="text">
+                  <div class="form-group">
+                    <input required [formControl]="phoneNumberControl" placeholder="Celular" class="input1" type="text">
+                    <span class="float-label">Celular</span>
+                  </div>
                 </div>
               </div>
               <button [disabled]="costumerNameControl.invalid || phoneNumberControl.invalid" (click)="nextSaleStep()" class="sale-modal-steps-step-button btn1">REGISTRAR</button>

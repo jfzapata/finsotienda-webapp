@@ -56,6 +56,12 @@ body {
   cursor: default;
 }
 
+.form-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .input1 {
   border: 1px solid var(--unnamed-color-ff5d54);
   color: var(--unnamed-color-404040);
@@ -63,6 +69,8 @@ body {
   height: 56px;
   font-size: 21px;
   padding: 0px 20px;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .input1:focus {
@@ -70,6 +78,23 @@ body {
 }
 
 .input1::placeholder {
+  color: transparent;
+}
+
+.input1:focus ~ .float-label,
+.input1:not(:focus):valid ~ .float-label {
+  top: 5px;
+  left: 20px;
+  font-size: 11px;
+  opacity: 1;
+}
+
+.float-label {
+  position: absolute;
+  pointer-events: none;
+  left: 20px;
+  top: 18px;
+  transition: 0.2s ease all;
   color: var(--unnamed-color-ff5d54);
 }
 

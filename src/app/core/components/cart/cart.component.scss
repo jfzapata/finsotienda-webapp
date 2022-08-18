@@ -98,11 +98,6 @@
 .cart-sale {
   padding: 0px 16px;
   box-shadow: 0px -3px 6px #00000029;
-  input {
-    margin: 25px 0px 30px 0px;
-    box-sizing: border-box;
-    max-width: 100%;
-  }
 
   input[type="number"] {
     -moz-appearance: textfield;
@@ -117,6 +112,10 @@
     width: 100%;
     margin-bottom: 45px;
   }
+}
+
+.cart-sale-phone-group {
+  padding: 25px 0px 30px 0px;
 }
 
 .cart-details {

@@ -93,8 +93,6 @@
 
 .search-bar-input-control {
   position: relative;
-  display: flex;
-  align-items: center;
 
   input {
     width: 100%;
@@ -124,6 +122,14 @@
 @media (max-width: 850px) {
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 670px) {
+  .search-bar-input-control {
+    i {
+      font-size: 23px;
+    }
   }
 }
 

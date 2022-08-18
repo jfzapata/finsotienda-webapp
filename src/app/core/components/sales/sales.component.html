@@ -1,8 +1,11 @@
 <div class="container">
   <div class="search-bar-container">
       <div class="search-bar-input-control">
-        <input class="input1" [formControl]="searchBarControl" placeholder="Buscar Producto" type="text">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="form-group">
+          <input required class="input1" [formControl]="searchBarControl" placeholder="Buscar Producto" type="text">
+          <span class="float-label">Buscar Producto</span>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
       </div>
   </div>
   <div class="content-wrapper">
