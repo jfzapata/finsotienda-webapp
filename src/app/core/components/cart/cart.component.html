@@ -40,6 +40,7 @@
     <div class="sale-modal-steps">
       <div *ngIf="currentSaleStep">
         <div [ngSwitch]="currentSaleStep">
+
           <div *ngSwitchCase="'CHOSE_PAYMENT_METHOD'">
             <div class="sale-modal-steps-step">
               <h1 class="sale-modal-steps-step-title title1">Método de Pago</h1>
@@ -59,9 +60,26 @@
                   </div>
                 </div>
               </div>
-              <button [disabled]="paymentMethodControl.invalid" class="sale-modal-steps-step-button btn1">VENDER</button>
+              <button [disabled]="paymentMethodControl.invalid" (click)="nextSaleStep()" class="sale-modal-steps-step-button btn1">VENDER</button>
             </div>
           </div>
+
+          <div *ngSwitchCase="'REGISTER_CUSTOMER'">
+            <div class="sale-modal-steps-step">
+              <h1 class="sale-modal-steps-step-title title1">Crear Cliente</h1>
+              <p class="sale-modal-steps-step-description description-text">Diligencia los siguientes campos con la información de tu cliente</p>
+              <div class="sale-modal-steps-step-customer-info">
+                <div class="sale-modal-steps-step-customer-info-name">
+                  <input [formControl]="costumerNameControl" placeholder="Nombre" class="input1" type="text">
+                </div>
+                <div class="sale-modal-steps-step-customer-info-phonenumber">
+                  <input [formControl]="phoneNumberControl" placeholder="Celular" class="input1" type="text">
+                </div>
+              </div>
+              <button [disabled]="costumerNameControl.invalid || phoneNumberControl.invalid" (click)="nextSaleStep()" class="sale-modal-steps-step-button btn1">VENDER</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

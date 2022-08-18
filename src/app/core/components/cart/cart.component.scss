@@ -161,6 +161,7 @@
   font-family: 'Fredoka';
   font-weight: 600;
   font-size: 28px;
+  margin-top: 0px;
 }
 
 .sale-modal-steps-step-payment-methods-method-wrapper {
@@ -215,4 +216,16 @@
 .description-text {
   font-size: 16px;
   color: var(--unnamed-color-404040);
+}
+
+.sale-modal-steps-step-customer-info {
+  margin-top: 30px;
+}
+
+.sale-modal-steps-step-customer-info-name {
+  margin-bottom: 16px;
+}
+
+.sale-modal-steps-step-customer-info-phonenumber {
+  margin-bottom: 24px;
 }

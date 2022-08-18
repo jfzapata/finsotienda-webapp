@@ -34,6 +34,7 @@ export class CartComponent implements OnInit, AfterViewInit {
   saleStepsGenerator: Generator | undefined;
   currentSaleStep: string | undefined;
   paymentMethodControl: FormControl = new FormControl('', Validators.required);
+  costumerNameControl: FormControl = new FormControl('', Validators.required);
   constructor(private cartService: CartService,
     private eventEmitterService: EventEmitterService) {
     }
@@ -59,6 +60,19 @@ export class CartComponent implements OnInit, AfterViewInit {
     openModal('sale-modal');
     this.restarSaleStepsGenerator();
     this.nextSaleStep();
+    this.nextSaleStep();
+  }
+
+  nextSaleStep(): void {
+    if (this.saleStepsGenerator) {
+      const nextStep = this.saleStepsGenerator.next();
+      if (!nextStep.done) {
+        this.currentSaleStep = nextStep.value as string;
+        console.log(this.currentSaleStep);
+      } else {
+        
+      }
+    } else {}
   }
 
   removeItemFromCart(cartItem: CartItemI): void {
@@ -82,16 +96,6 @@ export class CartComponent implements OnInit, AfterViewInit {
       0
     );
     this.total = newTotal;
-  }
-
-  private nextSaleStep(): void {
-    if (this.saleStepsGenerator) {
-      const nextStep = this.saleStepsGenerator.next();
-      if (!nextStep.done) {
-        this.currentSaleStep = nextStep.value as string;
-        console.log(this.currentSaleStep);
-      } else {}
-    } else {}
   }
 
   private restarSaleStepsGenerator(): void {
