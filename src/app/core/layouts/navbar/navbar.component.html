@@ -3,13 +3,13 @@
     <div class="navbar-info-wrapper">
       <div>
         <i class="fa-solid fa-angle-left"></i>
-        <i class="fa-solid fa-bars"></i>
+        <i (click)="openSideNav()" class="fa-solid fa-bars"></i>
       </div>
       <p class="navbar-info-page-title title1">
         {{ title }}
       </p>
       <div>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i (click)="openCart()" class="fa-solid fa-cart-shopping"></i>
       </div>
     </div>
   </div>

@@ -1,11 +1,18 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
+// Own
+// Utils
+import { closeCart, closeSideNav, openCart, openSideNav } from '@app/common/utils/general';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
+  static readonly openSideNav = openSideNav;
+  static readonly openCart = openCart;
+
   @ViewChild('fixedNavbar')
   fixedNavbar: ElementRef | undefined;
   title = 'Ventas';
@@ -13,6 +20,16 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     console.log(this.fixedNavbar)
+  }
+
+  openSideNav(): void {
+    closeCart();
+    openSideNav();
+  }
+
+  openCart(): void {
+    closeSideNav();
+    openCart();
   }
 
   ngAfterViewInit(): void {

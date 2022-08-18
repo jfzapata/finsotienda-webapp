@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  navTitle = '';
   title = 'finsotienda-webapp';
+
+  constructor() {
+    
+  }
 }
