@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartItemI } from '@app/common/types/interfaces/cart-item';
 // Enums
 import { EventEmitterEvent } from '@app/common/enums/event-emitter-event';
+// Utils
+import { openModal } from '@app/common/utils/modal';
 // Services
 import { CartService } from '@app/common/services/cart.service';
 import { EventEmitterService } from '@app/common/services/event-emitter.service';
@@ -34,6 +36,10 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.eventEmitterService.on(EventEmitterEvent.CART_UPDATED.valueOf(), () => this.getCartItems());
     this.getCartItems();
+  }
+
+  openSaleModal(): void {
+    openModal('sale-modal');
   }
 
   removeItemFromCart(cartItem: CartItemI): void {

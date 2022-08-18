@@ -28,7 +28,6 @@ export class SalesComponent implements OnInit {
     this.searchBarControl.valueChanges.subscribe((val) => this.onSearchBarchValueChange(val));
     this.eventEmitterService.on(EventEmitterEvent.CART_UPDATED.valueOf(), () => this.setProductsExtraInfo());
     this.loadAllProducts();
-    console.log(this.products);
   }
 
   increseProductQuantity(product: ProductI): void {

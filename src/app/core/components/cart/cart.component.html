@@ -27,7 +27,16 @@
     </div>
     <div class="cart-sale">
       <input [formControl]="phoneNumberControl" class="input1" type="text" placeholder="celular">
-      <button [disabled]="phoneNumberControl.invalid" class="btn1">VENDER</button>
+      <button (click)="openSaleModal()" [disabled]="false && phoneNumberControl.invalid" class="btn1">VENDER</button>
     </div>
+  </div>
+</div>
+
+
+<div id="sale-modal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span data-close class="close">&times;</span>
+    <p>Este es el primer modal</p>
   </div>
 </div>
