@@ -14,6 +14,7 @@ import { openModal, closeModal } from '@app/common/utils/modal';
 import { CartService } from '@app/common/services/cart.service';
 import { EventEmitterService } from '@app/common/services/event-emitter.service';
 import { FormControl, Validators } from '@angular/forms';
+import { closeCart } from '@app/common/utils/general';
 
 @Component({
   selector: 'app-cart',
@@ -54,6 +55,10 @@ export class CartComponent implements OnInit, AfterViewInit {
       console.log(this.saleStepsGenerator.next())
       console.log(this.saleStepsGenerator.next())
     } */
+  }
+
+  close(): void {
+    closeCart();
   }
 
   openSaleModal(): void {

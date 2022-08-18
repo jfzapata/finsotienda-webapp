@@ -14,6 +14,20 @@
   background-color: white;
   box-shadow: 0px 3px 6px #00000029;
   border-top-left-radius: 24px;
+  position: relative;
+
+  .fa-xmark {
+    display: none;
+    font-size: 20px;
+    padding: 8px 10px;
+    background: var(--unnamed-color-ff5d54);
+    color: white;
+    border-radius: 100%;
+    position: absolute;
+    cursor: pointer;
+    top: 5px;
+    left: -12px;
+  }
 }
 
 .cart-header {
@@ -27,8 +41,6 @@
   justify-content: center;
   color: var(--unnamed-color-ff5d54);
   margin-bottom: 20px;
-
-  /* Esto se puede sacar a una clase aparte */
   padding-left: 24px;
   padding-right: 12px;
 }
@@ -257,6 +269,12 @@
 @media (max-width: 850px) {
   .cart-container {
     display: none;
+  }
+
+  .cart {
+    .fa-xmark {
+      display: inherit;
+    }
   }
 }
 
