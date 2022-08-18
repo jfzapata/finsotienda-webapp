@@ -70,3 +70,13 @@ i {
     display: inherit;
   }
 }
+
+@media (max-width: 670px) {
+  .navbar-info {
+    padding: 0px 10px 15px 10px;
+  }
+
+  nav {
+    padding: 20px 0px;
+  }
+}

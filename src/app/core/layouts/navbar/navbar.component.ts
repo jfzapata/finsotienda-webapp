@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.fixedNavbar)
   }
 
   openSideNav(): void {
@@ -36,7 +35,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     new ResizeObserver(() => {
       const routeContentWrapper: HTMLElement | null = document.querySelector('.route-content-wrapper');
       if (routeContentWrapper && this.fixedNavbar) {
-        routeContentWrapper.style.height = `${this.fixedNavbar?.nativeElement.offsetHeight}px`;
+        routeContentWrapper.style.paddingTop = `${this.fixedNavbar?.nativeElement.offsetHeight}px`;
       } else {}
     }).observe(this.fixedNavbar?.nativeElement);
   }

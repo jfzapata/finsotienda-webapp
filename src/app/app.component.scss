@@ -3,6 +3,10 @@
   margin: auto;
 }
 
+.route-content-wrapper {
+  padding-top: 152px;
+}
+
 .sidemenu-back {
   display: none;
   position: fixed;
@@ -25,5 +29,11 @@
 @media (max-width: 850px) {
   .route-content-wrapper {
     width: 100%;
+  }
+}
+
+@media (max-width: 670px) {
+  .route-content-wrapper {
+    padding-top: 97px;
   }
 }
