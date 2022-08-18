@@ -35,8 +35,35 @@
 
 <div id="sale-modal" class="modal">
   <!-- Modal content -->
-  <div class="modal-content">
-    <span data-close class="close">&times;</span>
-    <p>Este es el primer modal</p>
+  <div class="modal-content sale-modal">
+    <!-- span data-close class="close">&times;</span -->
+    <div class="sale-modal-steps">
+      <div *ngIf="currentSaleStep">
+        <div [ngSwitch]="currentSaleStep">
+          <div *ngSwitchCase="'CHOSE_PAYMENT_METHOD'">
+            <div class="sale-modal-steps-step">
+              <h1 class="sale-modal-steps-step-title title1">Método de Pago</h1>
+              <p class="sale-modal-steps-step-description description-text">Elija el método de pago de tu cliente</p>
+              <div class="sale-modal-steps-step-payment-methods">
+                <div class="sale-modal-steps-step-payment-methods-method method1">
+                  <div class="sale-modal-steps-step-payment-methods-method-wrapper">
+                    <i [ngClass]="{'selected-payment-method': paymentMethodControl.value == 'EFECTIVO'}" (click)="selectPaymentMethdo('EFECTIVO')" class="fa-solid fa-money-bill"></i>
+                    <p class="sale-modal-steps-step-payment-methods-method-description description-text">Efectivo</p>
+                  </div>
+                </div>
+                
+                <div class="sale-modal-steps-step-payment-methods-method method2">
+                  <div class="sale-modal-steps-step-payment-methods-method-wrapper">
+                    <i [ngClass]="{'selected-payment-method': paymentMethodControl.value == 'MOVI'}" (click)="selectPaymentMethdo('MOVI')" class="fa-solid fa-wallet"></i>
+                    <p class="sale-modal-steps-step-payment-methods-method-description description-text">Movi</p>
+                  </div>
+                </div>
+              </div>
+              <button [disabled]="paymentMethodControl.invalid" class="sale-modal-steps-step-button btn1">VENDER</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

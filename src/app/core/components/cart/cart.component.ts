@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 // Own
+// Constants
+import { SALE_STEPS } from '@app/common/constants/sale-steps';
 // Types
 // Interfaces
 import { CartItemI } from '@app/common/types/interfaces/cart-item';
@@ -18,7 +20,7 @@ import { FormControl, Validators } from '@angular/forms';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, AfterViewInit {
   total = 0;
   cartItems: CartItemI[] = [];
   phoneNumberControl: FormControl = new FormControl('',
@@ -29,6 +31,9 @@ export class CartComponent implements OnInit {
       Validators.pattern(/^[0-9]*$/)
     ])
   );
+  saleStepsGenerator: Generator | undefined;
+  currentSaleStep: string | undefined;
+  paymentMethodControl: FormControl = new FormControl('', Validators.required);
   constructor(private cartService: CartService,
     private eventEmitterService: EventEmitterService) {
     }
@@ -38,14 +43,32 @@ export class CartComponent implements OnInit {
     this.getCartItems();
   }
 
+  ngAfterViewInit(): void {
+    this.openSaleModal();
+
+    /* if (this.saleStepsGenerator) {
+      console.log(this.saleStepsGenerator.next())
+      console.log(this.saleStepsGenerator.next())
+      console.log(this.saleStepsGenerator.next())
+      console.log(this.saleStepsGenerator.next())
+      console.log(this.saleStepsGenerator.next())
+    } */
+  }
+
   openSaleModal(): void {
     openModal('sale-modal');
+    this.restarSaleStepsGenerator();
+    this.nextSaleStep();
   }
 
   removeItemFromCart(cartItem: CartItemI): void {
     if (cartItem.addedQuantity) {
       this.cartService.updateCartItem(cartItem, cartItem.addedQuantity * -1);
     }
+  }
+
+  selectPaymentMethdo(paymentMethod: string): void  {
+    this.paymentMethodControl.setValue(paymentMethod);
   }
 
   private getCartItems(): void {
@@ -59,6 +82,27 @@ export class CartComponent implements OnInit {
       0
     );
     this.total = newTotal;
+  }
+
+  private nextSaleStep(): void {
+    if (this.saleStepsGenerator) {
+      const nextStep = this.saleStepsGenerator.next();
+      if (!nextStep.done) {
+        this.currentSaleStep = nextStep.value as string;
+        console.log(this.currentSaleStep);
+      } else {}
+    } else {}
+  }
+
+  private restarSaleStepsGenerator(): void {
+    this.saleStepsGenerator = this.makeSaleStepsGenerator();
+  }
+
+  private *makeSaleStepsGenerator() {
+    let index = 0;
+    while (SALE_STEPS[index]) {
+      yield SALE_STEPS[index++];
+    }
   }
 
 }
