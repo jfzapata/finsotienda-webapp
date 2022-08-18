@@ -17,6 +17,11 @@ export class CartService {
   lsKey = 'cartItems';
   constructor(private eventEmitterService: EventEmitterService) { }
 
+  clearCart(): void {
+    localStorage.setItem(this.lsKey, '[]');
+    this.emitCartUpdated();
+  }
+
   updateCartItem(product: ProductI, quantity: number): void {
     try {
       const cartItems: CartItemI[] = this.getCartItems();
@@ -38,9 +43,7 @@ export class CartService {
         }
 
         localStorage.setItem(this.lsKey, JSON.stringify(cartItems));
-        this.eventEmitterService.emit({
-          eventName: EventEmitterEvent.CART_UPDATED.valueOf()
-        })
+        this.emitCartUpdated();
       } else {
         console.log('No se puede actualizar el producto con cantidad negativa!');
       }
@@ -68,5 +71,11 @@ export class CartService {
     } catch (error) {
       throw error;
     }
+  }
+
+  private emitCartUpdated(): void {
+    this.eventEmitterService.emit({
+      eventName: EventEmitterEvent.CART_UPDATED.valueOf()
+    });
   }
 }
