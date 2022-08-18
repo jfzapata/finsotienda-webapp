@@ -120,3 +120,21 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 850px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 370px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
