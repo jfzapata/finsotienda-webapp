@@ -45,7 +45,7 @@ export class CartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.openSaleModal();
+    // this.openSaleModal();
 
     /* if (this.saleStepsGenerator) {
       console.log(this.saleStepsGenerator.next())

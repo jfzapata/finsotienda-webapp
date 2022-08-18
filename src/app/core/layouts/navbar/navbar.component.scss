@@ -36,3 +36,37 @@ i {
   float: left;
   cursor: pointer;
 }
+
+.navbar-info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-cart-shopping {
+  display: none;
+  font-size: 22px;
+}
+
+.fa-bars {
+  display: none;
+  font-size: 22px;
+}
+
+@media (max-width: 850px) {
+  .navbar-info {
+    width: 90%;
+  }
+
+  .fa-angle-left {
+    display: none;
+  }
+
+  .fa-cart-shopping {
+    display: inherit;
+  }
+
+  .fa-bars {
+    display: inherit;
+  }
+}
