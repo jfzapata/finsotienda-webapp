@@ -9,7 +9,7 @@ import { CartItemI } from '@app/common/types/interfaces/cart-item';
 // Enums
 import { EventEmitterEvent } from '@app/common/enums/event-emitter-event';
 // Utils
-import { openModal, closeModal } from '@app/common/utils/modal';
+import { closeModal, openModal } from '@app/common/utils/modal';
 // Services
 import { CartService } from '@app/common/services/cart.service';
 import { EventEmitterService } from '@app/common/services/event-emitter.service';
@@ -33,6 +33,7 @@ export class CartComponent implements OnInit, AfterViewInit {
     ])
   );
   saleStepsGenerator: Generator | undefined;
+  lastStep: string = SALE_STEPS[SALE_STEPS.length - 1];
   currentSaleStep: string | undefined;
   paymentMethodControl: FormControl = new FormControl('', Validators.required);
   costumerNameControl: FormControl = new FormControl('', Validators.required);
@@ -72,10 +73,11 @@ export class CartComponent implements OnInit, AfterViewInit {
       const nextStep = this.saleStepsGenerator.next();
       if (!nextStep.done) {
         this.currentSaleStep = nextStep.value as string;
-        console.log(this.currentSaleStep);
-      } else {
-        this.restartFormControls();
-        this.cartService.clearCart();
+        if (this.currentSaleStep === this.lastStep) {
+          this.cartService.clearCart();
+          this.restartFormControls();
+        }
+      } else {  
         closeModal('sale-modal');
       }
     } else {}
