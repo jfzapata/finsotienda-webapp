@@ -78,6 +78,7 @@ export class CartComponent implements OnInit, AfterViewInit {
           this.restartFormControls();
         }
       } else {  
+        this.close();
         closeModal('sale-modal');
       }
     } else {}
