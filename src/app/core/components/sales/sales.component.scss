@@ -1,7 +1,7 @@
 .products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 35px;
+  row-gap: 40px;
   column-gap: 25px;
 }
 
@@ -53,6 +53,7 @@
   height: 100%;
   color: white;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .products-product-controls-decrease {
