@@ -2,6 +2,11 @@ nav {
     background-image: linear-gradient(to right, var(--unnamed-color-ff885c), var(--unnamed-color-ff5353));
     color: white;
     padding: 40px 0px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
 }
 
 .navbar-info {
