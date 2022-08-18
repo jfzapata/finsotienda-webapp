@@ -266,6 +266,10 @@
   text-align: center;
 }
 
+.sale-modal-steps-step-payment-methods-method {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @media (max-width: 850px) {
   .cart-container {
     display: none;
