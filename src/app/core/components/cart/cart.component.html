@@ -80,6 +80,16 @@
             </div>
           </div>
 
+          <div *ngSwitchCase="'FINALIZE_SALE'">
+            <div class="sale-modal-steps-step">
+              <div class="sale-modal-steps-step-confirmation-icon">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <p class="sale-modal-steps-step-success-message">Registro Exitoso</p>
+              <button (click)="nextSaleStep()" class="sale-modal-steps-step-button btn1">FINALIZAR</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

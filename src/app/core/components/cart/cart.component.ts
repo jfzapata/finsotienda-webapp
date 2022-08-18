@@ -61,6 +61,7 @@ export class CartComponent implements OnInit, AfterViewInit {
     this.restarSaleStepsGenerator();
     this.nextSaleStep();
     this.nextSaleStep();
+    this.nextSaleStep();
   }
 
   nextSaleStep(): void {

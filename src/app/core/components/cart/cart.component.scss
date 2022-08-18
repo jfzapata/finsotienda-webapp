@@ -229,3 +229,22 @@
 .sale-modal-steps-step-customer-info-phonenumber {
   margin-bottom: 24px;
 }
+
+.sale-modal-steps-step-confirmation-icon {
+  text-align: center;
+  i {
+    color: var(--unnamed-color-ff5d54);
+    background-color: var(--unnamed-color-f4f7ff);
+    font-size: 150px;
+    padding: 20px;
+    border-radius: 100%;
+  }
+}
+
+.sale-modal-steps-step-success-message {
+  font-family: 'Fredoka';
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--unnamed-color-404040);
+  text-align: center;
+}
