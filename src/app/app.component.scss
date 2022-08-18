@@ -1,4 +1,10 @@
 .route-content-wrapper {
-    width: calc(100% - (var(--sidenav-width) + var(--cart-width)));
-    margin: auto;
+  width: calc(100% - (var(--sidenav-width) + var(--cart-width)));
+  margin: auto;
+}
+
+@media (max-width: 850px) {
+  .route-content-wrapper {
+    width: 100%;
+  }
 }

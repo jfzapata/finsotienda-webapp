@@ -248,3 +248,9 @@
   color: var(--unnamed-color-404040);
   text-align: center;
 }
+
+@media (max-width: 850px) {
+  .cart-container {
+    display: none;
+  }
+}
