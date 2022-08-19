@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
     this.getCartItems();
   }
 
-  close(): void {
+  private close(): void {
     closeCart();
   }
 
