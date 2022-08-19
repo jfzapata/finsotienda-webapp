@@ -1,7 +1,7 @@
 .sidenav {
   margin: 0;
   padding: 0;
-  width: var(--sidenav-width);
+  width: calc(var(--sidenav-width) + 10px);
   position: fixed;
   height: 100%;
   overflow-y: scroll;
@@ -37,7 +37,7 @@
 }
 
 .sidenav-navigation {
-  width: 100%;
+  width: calc(100% - 10px);
   background-color: white;
   border-top-right-radius: 24px;
   box-shadow: 6px -3px 6px #00000029;
