@@ -34,6 +34,7 @@
 
 .cart-header {
   padding: 36px 0px;
+  box-shadow: 0px 3px 6px #00000029;
 }
 
 .cart-header-figure {
@@ -289,13 +290,13 @@
 }
 
 @media (max-width: 670px) {
-  .cart-details {
-    overflow-y: scroll;
-    height: 250px;
-    background-color: var(--unnamed-color-f4f4f4);
-  }
-
   .sale-modal-steps {
     padding: 25px 50px;
+  }
+}
+
+@media (max-height: 670px) {
+  .cart-details {
+    height: 250px;
   }
 }
