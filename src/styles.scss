@@ -136,3 +136,9 @@ body {
     font-size: 18px;
   }
 }
+
+@media (min-width: 671px) {
+  .modal-content::-webkit-scrollbar {
+    display: none;
+  }
+}
