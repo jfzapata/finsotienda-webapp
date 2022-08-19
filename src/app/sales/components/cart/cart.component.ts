@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 // Own
 // Constants
@@ -10,11 +11,10 @@ import { CartItemI } from '@app/common/types/interfaces/cart-item';
 import { EventEmitterEvent } from '@app/common/enums/event-emitter-event';
 // Utils
 import { closeModal, openModal } from '@app/common/utils/modal';
+import { closeCart } from '@app/common/utils/general';
 // Services
 import { CartService } from '@app/common/services/cart.service';
 import { EventEmitterService } from '@app/common/services/event-emitter.service';
-import { FormControl, Validators } from '@angular/forms';
-import { closeCart } from '@app/common/utils/general';
 
 @Component({
   selector: 'app-cart',
@@ -78,7 +78,7 @@ export class CartComponent implements OnInit {
     }
   }
 
-  selectPaymentMethdo(paymentMethod: string): void  {
+  selectPaymentMethod(paymentMethod: string): void  {
     this.paymentMethodControl.setValue(paymentMethod);
   }
 

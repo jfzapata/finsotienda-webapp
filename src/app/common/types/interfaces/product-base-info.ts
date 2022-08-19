@@ -1,6 +1,6 @@
 export interface ProductBaseInfoI {
-    id: number;
-    name: string;
-    image: string;
-    price: number;
+  id: number;
+  name: string;
+  image: string;
+  price: number;
 }
