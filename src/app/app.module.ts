@@ -3,19 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // Own
 // Modules
-import { CoreModule } from '@app/core/core.module';
 import { AppRoutingModule } from '@app/app-routing.module';
 // Components
 import { AppComponent } from '@app/app.component';
+import { NavbarComponent } from '@app/sales/layouts/navbar/navbar.component';
+import { SidenavComponent } from '@app/sales/layouts/sidenav/sidenav.component';
+import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

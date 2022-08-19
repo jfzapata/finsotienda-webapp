@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Own
-// Components
-import { HomeComponent } from '@app/core/components/home/home.component';
-import { SalesComponent } from '@app/core/components/sales/sales.component';
-
 const routes: Routes = [{
+  path: 'sales',
+  loadChildren: () => import('./sales/sales.module').then(m => m.SalesModule)
+},
+{
   path: '',
-  component: SalesComponent
+  redirectTo: 'sales',
+  pathMatch: 'full'
 }];
 
 @NgModule({

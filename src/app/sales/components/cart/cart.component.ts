@@ -21,7 +21,7 @@ import { closeCart } from '@app/common/utils/general';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit, AfterViewInit {
+export class CartComponent implements OnInit {
   total = 0;
   cartItems: CartItemI[] = [];
   phoneNumberControl: FormControl = new FormControl('',
@@ -44,18 +44,6 @@ export class CartComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.eventEmitterService.on(EventEmitterEvent.CART_UPDATED.valueOf(), () => this.getCartItems());
     this.getCartItems();
-  }
-
-  ngAfterViewInit(): void {
-    // this.openSaleModal();
-
-    /* if (this.saleStepsGenerator) {
-      console.log(this.saleStepsGenerator.next())
-      console.log(this.saleStepsGenerator.next())
-      console.log(this.saleStepsGenerator.next())
-      console.log(this.saleStepsGenerator.next())
-      console.log(this.saleStepsGenerator.next())
-    } */
   }
 
   close(): void {
