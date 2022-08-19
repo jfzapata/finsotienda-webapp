@@ -13,7 +13,7 @@
 .cart {
   width: calc(100% - 10px);
   margin-left: 10px;
-  background-color: white;
+  background-color: var(--unnamed-color-ffffff);
   box-shadow: -6px -3px 6px #00000029;
   border-top-left-radius: 24px;
   position: relative;
@@ -23,7 +23,7 @@
     font-size: 20px;
     padding: 8px 10px;
     background: var(--unnamed-color-ff5d54);
-    color: white;
+    color: var(--unnamed-color-ffffff);
     border-radius: 100%;
     position: absolute;
     cursor: pointer;
@@ -210,7 +210,7 @@
 }
 
 .selected-payment-method {
-  color: white !important;
+  color: var(--unnamed-color-ffffff) !important;
   background-color: var(--unnamed-color-ff5d54);
 }
 
