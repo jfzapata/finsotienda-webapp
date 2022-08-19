@@ -1,7 +1,7 @@
 .cart-container {
   margin: 0;
   padding: 0;
-  width: var(--cart-width);
+  width: calc(var(--cart-width) + 10px);
   position: fixed;
   height: 100%;
   right: 0;
@@ -11,8 +11,10 @@
 }
 
 .cart {
+  width: calc(100% - 10px);
+  margin-left: 10px;
   background-color: white;
-  box-shadow: 0px 3px 6px #00000029;
+  box-shadow: -6px -3px 6px #00000029;
   border-top-left-radius: 24px;
   position: relative;
 
@@ -32,7 +34,6 @@
 
 .cart-header {
   padding: 36px 0px;
-  box-shadow: 0px 3px 6px #00000029;
 }
 
 .cart-header-figure {
