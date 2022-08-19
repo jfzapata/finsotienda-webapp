@@ -32,6 +32,10 @@
           <input required [formControl]="phoneNumberControl" class="input1" type="text" placeholder="celular">
           <span class="float-label">Celular</span>
         </div>
+        <p *ngIf="phoneNumberControl.errors && (phoneNumberControl.errors['minlength'] || phoneNumberControl.errors['maxlength'])" class="input-error-msg">
+          <small>El celular debe tener 10 dígitos</small>
+        </p>
+        
       </div>
       <button (click)="openSaleModal()" [disabled]="phoneNumberControl.invalid || !(cartItems.length > 0)" class="btn1">VENDER</button>
     </div>
@@ -86,6 +90,9 @@
                     <input required [formControl]="phoneNumberControl" placeholder="Celular" class="input1" type="text">
                     <span class="float-label">Celular</span>
                   </div>
+                  <p *ngIf="phoneNumberControl.errors && (phoneNumberControl.errors['minlength'] || phoneNumberControl.errors['maxlength'])" class="input-error-msg">
+                    <small>El celular debe tener 10 dígitos</small>
+                  </p>
                 </div>
               </div>
               <button [disabled]="costumerNameControl.invalid || phoneNumberControl.invalid" (click)="nextSaleStep()" class="sale-modal-steps-step-button btn1">REGISTRAR</button>

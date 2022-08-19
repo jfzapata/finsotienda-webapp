@@ -3,19 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
 
 :root {
-  --unnamed-color-ffffff: #ffffff;
-  --unnamed-color-ff5266: #ff5266;
-  --unnamed-color-ff905b: #ff905b;
-  --unnamed-color-f4f7ff: #f4f7ff;
-  --unnamed-color-6a6e77: #6a6e77;
-  --unnamed-color-01b275: #01b275;
-  --unnamed-color-fafafa: #fafafa;
-  --unnamed-color-00d38a: #00d38a;
-  --unnamed-color-a5a5a5: #a5a5a5;
-  --unnamed-color-da58e5: #da58e5;
-  --unnamed-color-9a43ff: #9a43ff;
-
-  /* usados */
   --unnamed-color-ff885c: #ff885c;
   --unnamed-color-ff5353: #ff5353;
   --unnamed-color-ff5d54: #ff5d54;
@@ -56,6 +43,12 @@ body {
   cursor: default;
 }
 
+.input-error-msg {
+  margin: 5px 0px 0px 0px;
+  color: var(--unnamed-color-f20000);
+  position: absolute;
+}
+
 .form-group {
   position: relative;
   display: flex;
@@ -70,7 +63,7 @@ body {
   font-size: 21px;
   padding: 0px 20px;
   box-sizing: border-box;
-  max-width: 100%;
+  width: 100%;
 }
 
 .input1:focus {
